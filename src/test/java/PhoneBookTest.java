@@ -4,6 +4,7 @@ import org.testng.Assert;
 public class PhoneBookTest {
 
     PhoneBook phoneBook = new PhoneBook();
+
     @Test
     public void testAdd() {
         int result = phoneBook.add("John", "12345");
@@ -17,7 +18,7 @@ public class PhoneBookTest {
     }
 
     @Test
-    public void testFindByNumber(){
+    public void testFindByNumber() {
         phoneBook.add("John", "12345");
 
         String result = phoneBook.findByNumber("12345");
@@ -29,7 +30,17 @@ public class PhoneBookTest {
 
         result = phoneBook.findByNumber("1111");
         Assert.assertNull(result);
+    }
 
+    @Test
+    public void testFindByName(){
+        phoneBook.add("Jack", "987");
+
+        String result = phoneBook.findByName("Jack");
+        Assert.assertEquals("987", result);
+
+        result = phoneBook.findByName("Vanya");
+        Assert.assertNull(result);
     }
 
 }
