@@ -11,6 +11,9 @@ public class PhoneBookTest {
 
         result = phoneBook.add("Jane", "67890");
         Assert.assertEquals(2, result);
+
+        result = phoneBook.add("John", "54321");
+        Assert.assertEquals(-1, result);
     }
 
 }
